@@ -49,7 +49,7 @@ if (empty($_SESSION['username'])) {
                 else{
                     while ($row_data = mysqli_fetch_row($result)) {
                         echo "<div class='swiper-slide'>";
-echo "<a href='aboutbook.php?id=".$row_data[0]."'><img src='$row_data[4]' alt='Описание'><p class='author'>$row_data[1]</p> </a>";
+echo "<a href='aboutbook.php?id=".$row_data[0]."'><img src='$row_data[4]' alt='Описание'><p class='author'>$row_data[2]</p> </a>";
                         echo "</div>";
         }
                 }
@@ -80,7 +80,7 @@ echo "<a href='aboutbook.php?id=".$row_data[0]."'><img src='$row_data[4]' alt='�
                 else{
                     while ($row_data = mysqli_fetch_row($result)) {
                         echo "<div class='swiper-slide'>";
-echo "<a href='aboutbook.php?id=".$row_data[0]."'><img src='$row_data[4]' alt='Описание'><p class='author'>$row_data[1]</p> </a>";
+echo "<a href='aboutbook.php?id=".$row_data[0]."'><img src='$row_data[4]' alt='Описание'><p class='author'>$row_data[2]</p> </a>";
                         echo "</div>";
         }
                 }
