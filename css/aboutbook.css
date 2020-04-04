@@ -74,6 +74,12 @@ div.pic
 }
 img
 {
+    width: 100%;
+    width: 400px;
     padding: 5%;
     width: 70%;
+}
+.bookpic{
+    width: 100%;
+    width: 350px;
 }

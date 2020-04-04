@@ -32,7 +32,7 @@ require_once "../back/connection.php";
         <p class="name_and_author"> <?=$author_book?></p>
         <p class="name_and_author">" <?=$name_book?> "</p>
         <div class='pic'>
-            <?="<img src='$img_book' alt='#''>"?>
+            <?="<img src='$img_book' alt='#'' class='bookpic'>"?>
         </div>
             
         
