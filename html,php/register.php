@@ -3,8 +3,8 @@ require_once "../back/connection.php";
 
 if (isset($_POST['reg-button'])) {
     $login = $_POST['reg-login'];
-    $name = $_POST['reg-name'];
     $password = $_POST['reg-pass'];
+    $passwordhash = password_hash($password, PASSWORD_DEFAULT);
 
     $button = $_POST['reg-button'];
 
@@ -14,7 +14,7 @@ if (isset($_POST['reg-button'])) {
 
     if ($row == 0) 
     {
-        $query_reg = "INSERT INTO `users` (`id_user`, `login`, `password`, `username`) VALUES (NULL, '$login', '$password', '$name');";
+        $query_reg = "INSERT INTO `users` (`id_user`, `login`, `password`, `username`) VALUES (NULL, '$login', '$passwordhash');";
         $send = mysqli_query($link, $query_reg);
     }
     else{
@@ -50,7 +50,6 @@ if (isset($_POST['reg-button'])) {
         <h1>Регистрация</h1>
         <form id="reg" method="POST">
             <p><input type="text" name="reg-login" required autofocus placeholder="Логин..."></p>
-            <p><input type="text" name="reg-name"required placeholder="Никнейм..."></p>
             <p><input type="password" name="reg-pass" required="" placeholder="Пароль..."></p>
             <p><input type="submit" name="reg-button" value="Зарегистрироваться" id="book_add"></p>
             

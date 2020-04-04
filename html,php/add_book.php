@@ -14,10 +14,10 @@
 	<main>
 		<div id="container">
 			<form method="GET" action="../back/add.php">
-				<p><input type="text" name="author_book" placeholder="Автор" required autofocus></p>
-				<p><input type="text" name="name_book" placeholder="Название" required></p>
-				<p><input type="text" name="img_book" placeholder="Обложка" required></p>
-				<p><input type="text" name="description_book" placeholder="Описание" required></p>
+				<p><input type="text" name="author_book" placeholder="Автор" pattern="[А-Яа-яЁё \-]{2,30}" required autofocus></p>
+				<p><input type="text" name="name_book" placeholder="Название"pattern="[А-Яа-яЁё \-]{2,30}" required></p>
+				<p><input type="url" name="img_book" placeholder="Обложка" required></p>
+				<p><input type="text" name="description_book" placeholder="Описание"pattern="[А-Яа-яЁё \-]{2,300}" required></p>
 
 				<p><label class="stat" for="status">Статус книги:</label>
 					<select name="status" class="sel">

@@ -4,6 +4,9 @@ require_once "../back/connection.php";
 	$author_book = $_GET['author_book'];
 	$name_book = $_GET['name_book'];
 	$img_book = $_GET['img_book'];
+	if (!@getimagesize($img_book)) {	
+			$img_book = '../img/dontload.png';
+		}
 	$description_book = $_GET['description_book'];
 	$status = $_GET['status'];
 

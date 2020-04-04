@@ -5,13 +5,15 @@ require_once '../back/connection.php';
 if (isset($_POST['auth-button'])) {
   $login = $_POST['auth-login'];
   $password = $_POST['auth-pass'];
+
   $button_auth = $_POST['auth-button'];
 
   $query = "SELECT `login`, `password`  FROM `users`";
   $result = mysqli_query($link, $query);
 
   while ($row = mysqli_fetch_row($result)) {
-    if (($login == $row[0]) and ($password == $row[1])) 
+    $passVer = password_verify($password, $row[1]);
+    if (($login == $row[0]) and $passVer) 
     {
       session_start();
       $_SESSION['username'] = $row[0];
@@ -19,7 +21,6 @@ if (isset($_POST['auth-button'])) {
     }
 
   }
-  if (($login != $row[0]) || ($password != $row[1])){
     echo "<p style='
           align-items: center; 
           color: #f33; 
@@ -28,7 +29,6 @@ if (isset($_POST['auth-button'])) {
           padding: 2%; 
           border-radius: 5px;
           border: 1px solid #ff4d4d;'> Неправильный логин или пароль! </p>";
-  }
 }
 ?>
 
