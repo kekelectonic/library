@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.3
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 25 2020 г., 10:33
--- Версия сервера: 5.7.19-log
--- Версия PHP: 7.1.7
+-- Время создания: Апр 05 2020 г., 18:00
+-- Версия сервера: 8.0.12
+-- Версия PHP: 7.2.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,7 +63,7 @@ INSERT INTO `books` (`id_book`, `author_book`, `name_book`, `description_book`, 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `login` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
+  `password` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `username` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -72,8 +72,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `login`, `password`, `username`) VALUES
-(1, 'admin', 'admin', 'admin'),
-(2, '12', '12', '12');
+(1, 'admin', '$2y$10$TWPpT3Grqc7uWN84mhGePe3nQFLxhTBhDahk9.tU0ayi3NGMkXHUe', 'Жопный воин');
 
 --
 -- Индексы сохранённых таблиц
@@ -101,11 +100,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `books`
   MODIFY `id_book` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- Ограничения внешнего ключа сохраненных таблиц
 --
